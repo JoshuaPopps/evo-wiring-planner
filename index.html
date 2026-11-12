@@ -1347,6 +1347,26 @@
     .option-c-table th:nth-child(2), .option-c-table td:nth-child(2) { width: 42%; }
     .circuit-inline-key { display: inline-block; width: 1.8em; height: .45em; margin-right: 4px; border: 1px solid var(--ink); background: var(--wire); vertical-align: middle; }
 
+    /* Factory reference: same shop-manual table treatment as the Option C reference, sized for the main sheet. */
+    .factory-reference { width: 100%; margin: 0; }
+    .factory-reference h4 { padding: 9px 10px; font-size: clamp(.88rem, 2vw, 1.12rem); }
+    .factory-reference .factory-table th, .factory-reference .factory-table td {
+      padding: 9px 10px;
+      font: 600 .78rem/1.5 "IBM Plex Mono", monospace;
+      vertical-align: top;
+      overflow-wrap: break-word;
+    }
+    .factory-reference .factory-table th:first-child, .factory-reference .factory-table td:first-child { width: 21%; }
+    .factory-reference .factory-table th:nth-child(2), .factory-reference .factory-table td:nth-child(2) { width: 54%; }
+    .factory-reference .factory-table th:nth-child(3), .factory-reference .factory-table td:nth-child(3) { width: 25%; }
+    .factory-reference .factory-table td:first-child { font-weight: 700; }
+    .factory-reference .factory-table td ul { margin: 0; padding-left: 1.1em; }
+    .factory-reference .factory-table td li + li { margin-top: 2px; }
+    .factory-note { margin: 14px 0 0; color: var(--muted); font: .82rem/1.5 "IBM Plex Mono", monospace; }
+    @media (max-width: 760px) {
+      .factory-reference .factory-table th, .factory-reference .factory-table td { padding: 7px 6px; font-size: .68rem; }
+    }
+
     @media (max-width: 600px) {
       .zoom-hint { order: 3; width: 100%; }
       .zoom-toolbar strong { width: 100%; }
@@ -1631,6 +1651,88 @@
 
       <section class="section">
         <div class="section-grid">
+          <div class="section-title"><h3>Factory reference</h3><p>Sourced stock specs for the Evo Softail — battery, coil, charging, bulbs, plugs, and timing.</p></div>
+          <div>
+            <div class="option-c-reference factory-reference">
+              <h4>FACTORY REFERENCE — STOCK EVO SOFTAIL SPECS</h4>
+              <table class="option-c-table factory-table">
+                <thead><tr><th>Item</th><th>Factory spec</th><th>Source</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td>Battery</td>
+                    <td>12V, 18 Ah, maintenance-free. Terminal bolts: 40 in-lbs (4.5 Nm).</td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Battery CCA (derived)</td>
+                    <td>~270A CCA, derived from the load test: 135A = 50% of CCA; pass is ≥9.6V after 15 s at 70°F.</td>
+                    <td>1984–99 Softail Repair Manual — load test</td>
+                  </tr>
+                  <tr>
+                    <td>Coil — stock</td>
+                    <td>Primary 2.5–3.1 Ω. Secondary 10,000–12,500 Ω.</td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Coil — Dyna 2000i</td>
+                    <td>2000i requires 2.5–3.5 Ω. Dual-plug: two DC2-1 coils in series = 3 Ω.</td>
+                    <td>Dynatek Dyna 2000i sheet</td>
+                  </tr>
+                  <tr>
+                    <td>Charging</td>
+                    <td>Regulator 14.3–14.7V @ 3600 rpm @ 75°F, 32A system. Stator 16–20 VAC per 1000 rpm; stator coil resistance 0.1–0.2 Ω.</td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Bulb loads</td>
+                    <td>Factory prints amps, not watts:
+                      <ul>
+                        <li>Headlamp — 4.7 / 4.3A</li>
+                        <li>Tail — 0.59A</li>
+                        <li>Stop — 2.25A</li>
+                        <li>Front turn / running — 2.25 / 0.59A</li>
+                        <li>Rear turn — 2.10A</li>
+                        <li>Passing — 2.5A each</li>
+                        <li>Instrument — 0.15A each</li>
+                      </ul>
+                    </td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Lighting cross-check</td>
+                    <td>Stock lighting sums to ~9–10A with everything on — hence the headroom on the 15A lighting breaker.</td>
+                    <td>Derived from factory bulb loads above — FSM #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Spark plugs</td>
+                    <td>HD No. 5R6A. Gap 0.038–0.043 in.</td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Ignition timing</td>
+                    <td>20° BTDC @ 1050–1500 rpm.</td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Idle speed</td>
+                    <td>1000–1050 rpm.</td>
+                    <td>1997–98 Softail Factory Service Manual #99482-98 §8-1 / §8-2</td>
+                  </tr>
+                  <tr>
+                    <td>Dyna 2000i setup</td>
+                    <td>8 advance curves; 4 rev limits, 6000–7500 rpm. Switch 4 OFF = dual fire / ON = single fire.</td>
+                    <td>Dynatek Dyna 2000i sheet</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="factory-note">Stock figures for checking a build against the factory baseline — aftermarket components follow their own sheets where they differ.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-grid">
           <div class="section-title"><h3>Bike routing map</h3><p>Where each loom travels before it splits into individual conductors.</p></div>
           <div class="route-map-wrap">
             <div class="diagram-frame route-map" id="routeMap"></div>
@@ -1817,12 +1919,12 @@
         hi4: {
           name: 'Crane Hi-4 / single-fire', short: 'Crane Hi-4',
           description: 'Nose-cone electronic ignition with single-fire capability.',
-          notes: '<p><strong>Build the power and grounding cleanly, then follow the Hi-4 diagram exactly.</strong> The unit’s coil-output leads depend on single- or dual-fire configuration.</p><p>Keep the module leads out of the regulator/stator bundle. Confirm coil resistance and mode settings before connecting the battery.</p>'
+          notes: '<p><strong>Build the power and grounding cleanly, then follow the Hi-4 diagram exactly.</strong> The unit is true single-fire only and offers no dual-fire option — its coil-output leads are separate per cylinder.</p><p>Keep the module leads out of the regulator/stator bundle. Confirm coil resistance and mode settings before connecting the battery.</p>'
         },
         points: {
           name: 'Points conversion', short: 'Points',
           description: 'Mechanical points, condenser, and conventional coil.',
-          notes: '<p><strong>The plan renames the trigger circuits to points wire and points plate ground.</strong> Switched 12V feeds coil positive; coil negative runs to the points/condenser.</p><p>Set points gap and static timing mechanically before chasing electrical faults. The points plate must ground cleanly to the engine.</p>'
+          notes: '<p><strong>The plan renames the trigger circuits to points wire and points plate ground.</strong> Switched 12V feeds coil positive; coil negative runs to the points/condenser.</p><p>Set the point gap per your points kit — the Evo is breakerless from the factory, so no factory points-gap spec exists. Set static timing mechanically before chasing electrical faults. The points plate must ground cleanly to the engine.</p>'
         },
         magneto: {
           name: 'Magneto', short: 'Magneto',
@@ -1975,8 +2077,8 @@
         if (state.electricStart) {
           w.push(wire('Starter main feed', 'Battery (+)', 'Starter solenoid high-current stud', '4 AWG', 'Red', 'Unfused high-current cable', 'Route away from exhaust and sharp edges; boot the live stud.', 2));
           w.push(wire('Solenoid-to-starter feed', 'Starter solenoid output stud', 'Starter motor terminal', '4 AWG', 'Red', 'Unfused high-current cable', 'On some starters this link is internal. If external, keep it short and boot both ends.', 1));
-          w.push(wire('Start-button power', 'Fuse block accessory slot', startButton, '16 AWG', 'Yellow', '10A accessory', 'The momentary button controls the relay coil only—never route starter-solenoid current through a small handlebar switch.', 4));
-          w.push(wire('Starter relay command', startButton, 'Starter relay terminal 86', '16 AWG', 'Yellow / black trace', '10A accessory', 'Use a normally open momentary button; pressing it should energize only the relay coil.', 4));
+          w.push(wire('Start-button power', 'Fuse block accessory slot', startButton, '16 AWG', 'Yellow', '15A accessory', 'The momentary button controls the relay coil only—never route starter-solenoid current through a small handlebar switch.', 4));
+          w.push(wire('Starter relay command', startButton, 'Starter relay terminal 86', '16 AWG', 'Yellow / black trace', '15A accessory', 'Use a normally open momentary button; pressing it should energize only the relay coil.', 4));
           w.push(wire('Starter relay contact feed', '30A main fuse output', '20A inline fuse → Starter relay terminal 30', '12 AWG', 'Red', '20A starter control', 'This supplies the switched side of the relay. Mount the 20A fuse close to the main-feed takeoff.', 2));
           w.push(wire('Solenoid trigger', 'Starter relay terminal 87', 'Solenoid trigger terminal', '12 AWG', 'Green', '20A starter control', 'Verify neutral/clutch safety strategy before bypassing any factory interlock.', 4));
           w.push(wire('Starter relay ground', 'Starter relay terminal 85', 'Frame ground bus / stud', '16 AWG', 'Black', 'Unfused', 'Ground the relay near the fuse block; do not stack it on a painted bracket.', 2));
@@ -1999,7 +2101,7 @@
             w.push(wire('Pickup plate ground', 'Dyna S / pickup plate', 'Engine case', '16 AWG', 'Black', 'Unfused', 'The plate grounds through its mount; verify continuity before closing the cone.', 2));
           } else if (state.ignition === 'hi4') {
             w.push(wire('Hi-4 module power', runSwitchOutput, 'Hi-4 switched-power lead', '14 AWG', 'White', '15A ignition', 'Identify the module lead from the correct Hi-4 manual.', 4));
-            w.push(wire('Hi-4 coil outputs', 'Hi-4 coil output lead(s)', 'Matching coil negative terminal(s)', '16 AWG', 'Blue / violet', '15A ignition upstream', 'Single-fire uses separate cylinder outputs; wire to the selected mode and coil type.', 2));
+            w.push(wire('Hi-4 coil outputs', 'Hi-4 coil output lead(s)', 'Matching coil negative terminal(s)', '16 AWG', 'Blue / violet', '15A ignition upstream', 'True single-fire only — separate cylinder outputs; wire each lead to its matching cylinder coil terminal.', 2));
             w.push(wire('Hi-4 ground path', 'Module / nose-cone plate', 'Engine case', '16 AWG', 'Black', 'Unfused', 'Confirm low-resistance continuity from plate to battery negative.', 2));
           } else if (state.ignition === 'points') {
             w.push(wire('Points wire', 'Ignition coil (−)', 'Points terminal + condenser', '16 AWG', 'Blue / violet', '15A ignition upstream', 'Use a flexible, heat-resistant lead where it enters the cone.', 2));
@@ -2029,16 +2131,16 @@
         }
 
         if (state.turnSignals) {
-          w.push(wire('Flasher power', 'Fuse block lighting slot', 'Flasher / signal module input', '16 AWG', 'Orange / gray trace', '15A lighting', 'Use an LED-compatible flasher if the lamps are LED.', 3));
-          w.push(wire('Signal-control feed', 'Flasher / signal module', signalSwitch, '16 AWG', 'Gray', '15A lighting', state.controls === 'stock' ? 'Stock Harley momentary signal buttons require a compatible signal module; a basic two-pin flasher alone will not latch them.' : 'A maintained three-position switch works with a basic flasher; momentary buttons need a compatible control module.', 3));
-          w.push(wire('Left signal branch', signalLeft, 'Front + rear left lamps', '16 AWG', 'Violet', '15A lighting', 'Five feet for the left half of the 10-foot turn-signal allowance. Make the front/rear split at a serviceable junction.', 5));
-          w.push(wire('Right signal branch', signalRight, 'Front + rear right lamps', '16 AWG', 'Brown', '15A lighting', 'Five feet for the right half of the 10-foot turn-signal allowance. Keep left and right labels visible inside the headlight or junction box.', 5));
+          w.push(wire('Flasher power', 'Fuse block accessory slot', 'Flasher / signal module input', '16 AWG', 'Orange / gray trace', '15A accessory', 'Use an LED-compatible flasher if the lamps are LED.', 3));
+          w.push(wire('Signal-control feed', 'Flasher / signal module', signalSwitch, '16 AWG', 'Gray', '15A accessory', state.controls === 'stock' ? 'Stock Harley momentary signal buttons require a compatible signal module; a basic two-pin flasher alone will not latch them.' : 'A maintained three-position switch works with a basic flasher; momentary buttons need a compatible control module.', 3));
+          w.push(wire('Left signal branch', signalLeft, 'Front + rear left lamps', '16 AWG', 'Violet', '15A accessory', 'Five feet for the left half of the 10-foot turn-signal allowance. Make the front/rear split at a serviceable junction.', 5));
+          w.push(wire('Right signal branch', signalRight, 'Front + rear right lamps', '16 AWG', 'Brown', '15A accessory', 'Five feet for the right half of the 10-foot turn-signal allowance. Keep left and right labels visible inside the headlight or junction box.', 5));
           w.push(wire('Signal lamp grounds', 'Four signal lamp grounds', 'Nearest ground bus / stud', '16 AWG', 'Black', 'Unfused', 'Short grounds are fine only if each ground point is clean and bonded.', 2));
         }
 
         if (state.horn) {
-          w.push(wire('Horn power', 'Fuse block accessory slot', 'Horn (+) or horn relay common', '16 AWG', 'Orange / black trace', '10A accessory', 'Use a relay if the horn’s measured draw exceeds the switch rating.', 3));
-          w.push(wire('Horn switch leg', 'Horn (−) / relay coil', hornButton + ' → ground', '16 AWG', 'Black / orange trace', '10A accessory', 'A ground-side horn button keeps only the load or relay current in the switch.', 2));
+          w.push(wire('Horn power', 'Fuse block accessory slot', 'Horn (+) or horn relay common', '16 AWG', 'Orange / black trace', '15A accessory', 'Use a relay if the horn’s measured draw exceeds the switch rating.', 3));
+          w.push(wire('Horn switch leg', 'Horn (−) / relay coil', hornButton + ' → ground', '16 AWG', 'Black / orange trace', '15A accessory', 'A ground-side horn button keeps only the load or relay current in the switch.', 2));
         }
         return w;
       }
@@ -2051,8 +2153,8 @@
         if (state.electricStart) rows.push({ pos: 'INLINE 3', name: 'Starter relay contacts', detail: 'Main feed to relay terminal 30', amp: '20A' });
         return rows.concat([
           { pos: 'BLOCK 1', name: state.ignition === 'magneto' ? 'Spare' : 'Ignition', detail: state.ignition === 'magneto' ? 'Open position for future use' : ignitions[state.ignition].short, amp: state.ignition === 'magneto' ? '—' : '15A' },
-          { pos: 'BLOCK 2', name: 'Lighting', detail: [state.headlight ? 'headlight' : '', state.tailBrake ? 'tail/brake' : '', state.turnSignals ? 'signals' : ''].filter(Boolean).join(' + ') || 'Spare', amp: (state.headlight || state.tailBrake || state.turnSignals) ? '15A' : '—' },
-          { pos: 'BLOCK 3', name: 'Accessory', detail: [state.electricStart ? 'starter button + relay coil' : '', state.horn ? 'horn' : ''].filter(Boolean).join(' + ') || 'Spare', amp: (state.electricStart || state.horn) ? '10A' : '—' },
+          { pos: 'BLOCK 2', name: 'Lighting', detail: [state.headlight ? 'headlight' : '', state.tailBrake ? 'tail/brake' : ''].filter(Boolean).join(' + ') || 'Spare', amp: (state.headlight || state.tailBrake) ? '15A' : '—' },
+          { pos: 'BLOCK 3', name: 'Accessory', detail: [state.electricStart ? 'starter button + relay coil' : '', state.horn ? 'horn' : '', state.turnSignals ? 'signals' : ''].filter(Boolean).join(' + ') || 'Spare', amp: (state.electricStart || state.horn || state.turnSignals) ? '15A' : '—' },
           { pos: 'BLOCK 4', name: 'Future accessory', detail: 'Leave open until a real load is added', amp: '—' }
         ]);
       }
@@ -2331,11 +2433,11 @@
           points: 'POINTS',
           magneto: 'MAGNETO'
         };
-        var coilLabel = state.ignition === 'dyna2000i' ? 'SINGLE-FIRE COIL'
+        var coilLabel = state.ignition === 'dyna2000i' ? 'DUAL/SINGLE-FIRE COIL'
           : (state.ignition === 'stock' || state.ignition === 'points') ? 'DUAL-FIRE COIL' : 'COIL';
         var hasLighting = state.headlight || state.tailBrake || state.turnSignals;
-        var lightingLoads = [state.headlight ? 'headlight' : '', state.tailBrake ? 'tail/brake' : '', state.turnSignals ? 'signals' : ''].filter(Boolean).join(' + ');
-        var accessoryLoads = [state.electricStart ? 'starter button + relay coil' : '', state.horn ? 'horn' : ''].filter(Boolean).join(' + ');
+        var lightingLoads = [state.headlight ? 'headlight' : '', state.tailBrake ? 'tail/brake' : ''].filter(Boolean).join(' + ');
+        var accessoryLoads = [state.electricStart ? 'starter button + relay coil' : '', state.horn ? 'horn' : '', state.turnSignals ? 'signals' : ''].filter(Boolean).join(' + ');
         var wireRuns = [
           '<path class="wire-shadow" d="M18 16H26M34 16H42M58 16H62" />',
           '<path class="wire-color" style="--wire:#d82f24" d="M18 16H26M34 16H42M58 16H62" />',
@@ -2396,8 +2498,8 @@
         } else {
           rows.push(['IGNITION', 'Key switch → ' + ignitions[state.ignition].short + ' → coil → spark plug', '15A', 'WHITE', '14 AWG']);
         }
-        if (hasLighting) rows.push(['LIGHTING', lightingLoads + ' via fuse block', '15A', 'BLUE', '14 AWG headlight · 16 AWG tail & signals']);
-        if (state.electricStart || state.horn) rows.push(['ACCESSORY', accessoryLoads, '10A', state.horn ? 'ORANGE' : 'YELLOW', '16 AWG']);
+        if (state.headlight || state.tailBrake) rows.push(['LIGHTING', lightingLoads + ' via fuse block', '15A', 'BLUE', '14 AWG headlight · 16 AWG tail & signals']);
+        if (state.electricStart || state.horn || state.turnSignals) rows.push(['ACCESSORY', accessoryLoads, '15A', state.horn ? 'ORANGE' : 'YELLOW', '16 AWG']);
         if (state.electricStart) rows.push(['STARTER', 'Battery (+) → solenoid → starter motor', '—', 'RED', '4 AWG']);
         rows.push(['GROUND', 'All components → engine / frame ground', '—', 'BLACK', state.electricStart ? '4 AWG' : '10 AWG']);
         var colorHex = { RED: '#d82f24', YELLOW: '#f2bd1f', BLUE: '#176fc1', ORANGE: '#f06a22', GREEN: '#16834b', BLACK: '#111210' };
